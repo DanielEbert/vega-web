@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  vega-web:
+    build: .
+    ports:
+      - "34958:80"
+    restart: always
