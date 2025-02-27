@@ -14,11 +14,20 @@
     let isSpecFullscreen: boolean = $state(false);
     let isDataFullscreen: boolean = $state(false);
 
+    function addDefaultSpec(spec: any) {
+        spec['width'] = 700;
+        spec['height'] = 700;
+        return spec;
+    }
+
     function renderChart(): void {
         try {
-            const spec: any = JSON.parse(data.spec);
+            const spec: any = addDefaultSpec(JSON.parse(data.spec));
+            console.log(spec.data)
             try {
-                spec.data.values = JSON.parse(data.plotData);
+                if (Object.keys(spec.data).length == 0) {
+                    spec.data.values = JSON.parse(data.plotData);
+                }
             } catch (e) { /* Okay to be empty, or currently editing */ }
 
             vegaEmbed(chartContainer, spec, { actions: false }).catch((error) => {

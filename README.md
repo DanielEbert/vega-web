@@ -1,4 +1,15 @@
-# sv
+# Vega-Web
+
+Run
+~~~
+docker compose up --build
+~~~
+
+### TODO
+
+- cache vega data in local storage, probably with name to go back to previous plots
+
+# Dev Guide
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
